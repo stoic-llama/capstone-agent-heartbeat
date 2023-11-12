@@ -70,8 +70,7 @@ pipeline {
                     string(credentialsId: 'capstone_monitoring_service', variable: 'MONITORINGURL')
                 ]) {
                     sh '''
-                        ssh -i /var/jenkins_home/.ssh/website_deploy_rsa_key ${WEBSITE} "echo "Jenkins: ${JENKINS}"; echo "APPS: ${APPS}";
-                        docker run -d \
+                        ssh -i /var/jenkins_home/.ssh/website_deploy_rsa_key ${WEBSITE} "docker run -d \
                         -p 5900:5900 \
                         --rm \
                         -e CAPSTONE_AGENT_ID=100 \
