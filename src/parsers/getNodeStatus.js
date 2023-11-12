@@ -35,10 +35,10 @@ function parseDockerCommand(stdout) {
 
     /*
       Translation: 
-          1) Take the docker command output (i.e., stdout) and split into array by |||
+          1) Take the docker command output (i.e., stdout) and split into array by ___
           2) Then remove the last node since it's empty string
     */
-    str = stdout.split('|||').filter(o => o.length > 0)
+    str = stdout.split('___').filter(o => o.length > 0)
   
 
     /* 

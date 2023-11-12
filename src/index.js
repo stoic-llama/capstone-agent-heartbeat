@@ -7,15 +7,15 @@ const axios = require('axios')
 
 
 // get all nodes, dead or alive
-const cmdAll = 'docker ps -a --format "{{.ID}}|{{.Names}}|{{.Status}}|||"'
+const cmdAll = 'docker ps -a --format "{{.ID}}|{{.Names}}|{{.Status}}___"'
 // get only live nodes
-const cmdLive = 'docker ps --format "{{.ID}}|{{.Names}}|{{.Status}}|||"'
+const cmdLive = 'docker ps --format "{{.ID}}|{{.Names}}|{{.Status}}___"'
 
 // jenkins URLs
 let jenkinsURLs = [] 
 let jNames = []
 let jUrls = []
-const jobs = process.env.CAPSTONE_JENKINS.split(' ||| ');
+const jobs = process.env.CAPSTONE_JENKINS.split(' ___ ');
 
 for(let i=0; i<jobs.length; i++) {
     if(i % 2 === 0) {
@@ -36,7 +36,7 @@ for(let i=0; i<jNames.length; i++) {
 let healthcheckURLs = [] 
 let names = []
 let urls = []
-const apps = process.env.CAPSTONE_APPS.split(' ||| ');
+const apps = process.env.CAPSTONE_APPS.split(' ___ ');
 
 for(let i=0; i<apps.length; i++) {
     if(i % 2 === 0) {
