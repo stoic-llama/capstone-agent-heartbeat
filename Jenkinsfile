@@ -71,6 +71,25 @@ pipeline {
                 ]) {
                     sh '''
                         ssh -i /var/jenkins_home/.ssh/website_deploy_rsa_key ${WEBSITE} "echo "Starting docker run...";
+                        
+                        echo "
+                            docker run -d \
+                            -p 5900:5900 \
+                            --rm \
+                            -e CAPSTONE_AGENT_ID=100 \
+                            -e CAPSTONE_FREQUENCY=300000 \
+                            -e CAPSTONE_JENKINS="${JENKINS}" \
+                            -e CAPSTONE_APPS="${APPS}" \
+                            -e CAPSTONE_RESTART_URL="${RESTARTURL}" \
+                            -e CAPSTONE_CONTACT_NAME="${CONTACTNAME}" \
+                            -e CAPSTONE_CONTACT_EMAIL="${CONTACTEMAIL}" \
+                            -e CAPSTONE_MONITORING_SERVICE="${MONITORINGURL}" \
+                            --name ${containerName} \
+                            --network helpmybabies \
+                            -v /var/run/docker.sock:/var/run/docker.sock \
+                            stoicllama/${containerName}:${version}
+                        "
+                        
                         docker run -d \
                         -p 5900:5900 \
                         --rm \
