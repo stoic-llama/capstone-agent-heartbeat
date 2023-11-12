@@ -15,7 +15,7 @@ const cmdLive = 'docker ps --format "{{.ID}}__{{.Names}}__{{.Status}}___"'
 let jenkinsURLs = [] 
 let jNames = []
 let jUrls = []
-const jobs = process.env.CAPSTONE_JENKINS.split(' ___ ');
+const jobs = process.env.CAPSTONE_JENKINS.split('____');
 
 for(let i=0; i<jobs.length; i++) {
     if(i % 2 === 0) {
@@ -36,7 +36,7 @@ for(let i=0; i<jNames.length; i++) {
 let healthcheckURLs = [] 
 let names = []
 let urls = []
-const apps = process.env.CAPSTONE_APPS.split(' ___ ');
+const apps = process.env.CAPSTONE_APPS.split('____');
 
 for(let i=0; i<apps.length; i++) {
     if(i % 2 === 0) {
