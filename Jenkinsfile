@@ -67,7 +67,7 @@ pipeline {
                     string(credentialsId: 'capstone_restart_url', variable: 'RESTARTURL'),
                     string(credentialsId: 'capstone_contact_name', variable: 'CONTACTNAME'),
                     string(credentialsId: 'capstone_contact_email', variable: 'CONTACTEMAIL'),
-                    string(credentialsId: 'capstone_monitoring_service', variable: 'MONITORINGURL'),
+                    string(credentialsId: 'capstone_monitoring_service', variable: 'MONITORINGURL')
                 ]) {
 
                     sh '''
@@ -76,8 +76,8 @@ pipeline {
                         --rm \
                         -e CAPSTONE_AGENT_ID=100 \
                         -e CAPSTONE_FREQUENCY=300000 \
-                        -e CAPSTONE_JENKINS=${JENKINS} \
-                        -e CAPSTONE_APPS=${APPS} \
+                        -e CAPSTONE_JENKINS="${JENKINS}" \
+                        -e CAPSTONE_APPS="${APPS}" \
                         -e CAPSTONE_RESTART_URL=${RESTARTURL} \
                         -e CAPSTONE_CONTACT_NAME=${CONTACTNAME} \
                         -e CAPSTONE_CONTACT_EMAIL=${CONTACTEMAIL} \
