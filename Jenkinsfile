@@ -83,7 +83,7 @@ pipeline {
                         -e CAPSTONE_CONTACT_EMAIL=${CONTACTEMAIL} \
                         -e CAPSTONE_MONITORING_SERVICE=${MONITORINGURL} \
                         --name ${containerName} \
-                        --network monitoring \
+                        --network helpmybabies \
                         -v /var/run/docker.sock:/var/run/docker.sock \
                         stoicllama/${containerName}:${version}
 
