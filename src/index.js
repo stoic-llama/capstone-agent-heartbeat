@@ -7,9 +7,9 @@ const axios = require('axios')
 
 
 // get all nodes, dead or alive
-const cmdAll = 'docker ps -a --format "{{.ID}}|{{.Names}}|{{.Status}}___"'
+const cmdAll = 'docker ps -a --format "{{.ID}}__{{.Names}}__{{.Status}}___"'
 // get only live nodes
-const cmdLive = 'docker ps --format "{{.ID}}|{{.Names}}|{{.Status}}___"'
+const cmdLive = 'docker ps --format "{{.ID}}__{{.Names}}__{{.Status}}___"'
 
 // jenkins URLs
 let jenkinsURLs = [] 

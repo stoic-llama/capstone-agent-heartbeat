@@ -22,7 +22,7 @@ function execShellCommand(cmd) {
 
 /*
 parseDockerCommand() returns this array of objects, structure listed below.
-    Docker Instance ID | Docker Instance Name | Docker Status
+    Docker Instance ID __ Docker Instance Name __ Docker Status
     arr[0].ID            arr[0].Name            arr[0].Status
     arr[1].ID            arr[1].Name            arr[1].Status
     ...
@@ -44,11 +44,11 @@ function parseDockerCommand(stdout) {
     /* 
       Translation: 
           1) Take each node in str, and remove the newline in the beginning of node if present 
-          2) Then split into array by | 
+          2) Then split into array by __ 
           3) Then remove the last node since it's empty string
     */
     str.forEach( s => {
-      var arr = s.trimLeft(s, '\n').split('|').filter(o => o.length > 0)
+      var arr = s.trimLeft(s, '\n').split('__').filter(o => o.length > 0)
       arr.forEach(n => strParsed.push(n))
     })
 
